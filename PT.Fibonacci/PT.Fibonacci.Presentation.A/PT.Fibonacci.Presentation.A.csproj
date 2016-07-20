@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2B3D1085-E676-41A8-8A4B-5888CCC16F6C}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{82951321-01DF-4C4E-93C3-404EFF9FDA0A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PT.Fibonacci.Infrastructure</RootNamespace>
-    <AssemblyName>PT.Fibonacci.Infrastructure</AssemblyName>
+    <RootNamespace>PT.Fibonacci.Presentation.A</RootNamespace>
+    <AssemblyName>PT.Fibonacci.Presentation.A</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommandLine, Version=1.9.71.2, Culture=neutral, PublicKeyToken=de6f01bd326f8c32, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommandLineParser.1.9.71\lib\net45\CommandLine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -44,24 +51,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logging\Log4NetLogger.cs" />
-    <Compile Include="Messaging\MassTransit\MassTransitConfiguration.cs" />
-    <Compile Include="Messaging\MassTransit\MassTransitMessageReceiver.cs" />
-    <Compile Include="Messaging\MassTransit\MassTransitMessageSender.cs" />
-    <Compile Include="Messaging\Rest\RestConfiguration.cs" />
-    <Compile Include="Messaging\Rest\RestMessageReceiver.cs" />
-    <Compile Include="Messaging\Rest\RestMessageSender.cs" />
+    <Compile Include="CommandLine\Options.cs" />
+    <Compile Include="FibonacciWorker.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\PT.Fibonacci.Infrastructure.Base\PT.Fibonacci.Infrastructure.Base.csproj">
-      <Project>{80e5b91a-76a6-411b-a3c6-69d5f1bbd202}</Project>
-      <Name>PT.Fibonacci.Infrastructure.Base</Name>
-    </ProjectReference>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\PT.Fibonacci.Application.Base\PT.Fibonacci.Application.Base.csproj">
+      <Project>{F9FDE64F-17C9-4887-A3B8-40FFE7B2D3F5}</Project>
+      <Name>PT.Fibonacci.Application.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PT.Fibonacci.Infrastructure.Base\PT.Fibonacci.Infrastructure.Base.csproj">
+      <Project>{80E5B91A-76A6-411B-A3C6-69D5F1BBD202}</Project>
+      <Name>PT.Fibonacci.Infrastructure.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PT.Fibonacci.Presentation.Base\PT.Fibonacci.Presentation.Base.csproj">
+      <Project>{31FAB4D2-B4DD-4B0A-B8CC-B17970E4DD01}</Project>
+      <Name>PT.Fibonacci.Presentation.Base</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
