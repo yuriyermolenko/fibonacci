@@ -2,6 +2,7 @@
 using PT.Fibonacci.Infrastructure.Base.Logging;
 using PT.Fibonacci.Infrastructure.Logging;
 using System.Web.Http;
+using PT.Fibonacci.Presentation.B.Dependencies;
 using WebApi.StructureMap;
 
 namespace PT.Fibonacci.Presentation.B

@@ -2,6 +2,7 @@
 using PT.Fibonacci.Infrastructure.Base.Logging;
 using System.Net.Http;
 using System.Web.Http;
+using PT.Fibonacci.Presentation.B.Processing;
 
 namespace PT.Fibonacci.Presentation.B.Controllers
 {
@@ -19,8 +20,8 @@ namespace PT.Fibonacci.Presentation.B.Controllers
         [HttpPost]
         public HttpResponseMessage Post(FibonacciMessage message)
         {
-            Logger.LogInfo($"Received:{message.CorrelationId}:{message.Value}");
-            Logger.LogInfo($"Starting worker for:{message.CorrelationId}:{message.Value}");
+            Logger.LogInfo($"Received:{message.CorrelationId}:{message.Number}");
+            Logger.LogInfo($"Starting worker for:{message.CorrelationId}:{message.Number}");
 
             _worker.Perform(message);
 

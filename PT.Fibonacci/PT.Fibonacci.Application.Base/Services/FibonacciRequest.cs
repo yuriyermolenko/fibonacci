@@ -1,13 +1,15 @@
-﻿namespace PT.Fibonacci.Application.Base.Services
+﻿using PT.Fibonacci.Domain;
+
+namespace PT.Fibonacci.Application.Base.Services
 {
     public class FibonacciRequest
     {
-        public int Value { get; private set; }
+        public FibonacciNumber Number { get; private set; }
         public string CorrelationId { get; private set; }
 
-        public FibonacciRequest(int value, string correlationId)
+        public FibonacciRequest(FibonacciNumber number, string correlationId)
         {
-            Value = value;
+            Number = number;
             CorrelationId = correlationId;
         }
     }

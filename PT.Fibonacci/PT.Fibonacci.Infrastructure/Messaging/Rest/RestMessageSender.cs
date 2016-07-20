@@ -24,7 +24,7 @@ namespace PT.Fibonacci.Infrastructure.Messaging.Rest
 
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
-                throw new Exception("The server went down"); // TODO add custom application exceptions and handling
+                throw new Exception("The destination host is not available"); // TODO add custom application exceptions and handling
             }
         }
     }

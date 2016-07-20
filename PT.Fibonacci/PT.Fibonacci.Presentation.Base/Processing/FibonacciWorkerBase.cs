@@ -1,5 +1,6 @@
 ﻿using System;
 using PT.Fibonacci.Application.Base.Services;
+using PT.Fibonacci.Domain;
 using PT.Fibonacci.Domain.Contracts;
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 
@@ -25,7 +26,9 @@ namespace PT.Fibonacci.Presentation.Base.Processing
         {
             var result = FibonacciService.CalculateFibonacci(request);
 
-            var message = new FibonacciMessage(result.Value, request.CorrelationId);
+            var message = new FibonacciMessage(
+                result.Number, 
+                request.CorrelationId);
 
             MessageSender.Send(message);
         }

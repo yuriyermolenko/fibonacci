@@ -1,19 +1,25 @@
-﻿using PT.Fibonacci.Infrastructure.Base.Messaging;
+﻿using System.Data.SqlTypes;
+using PT.Fibonacci.Infrastructure.Base.Messaging;
 
 namespace PT.Fibonacci.Domain.Contracts
 {
     public class FibonacciMessage : IMessage
     {
         public string CorrelationId { get; set; }
+
+        public int Index { get; set; }
         public int Value { get; set; }
+
+        public FibonacciNumber Number => new FibonacciNumber(Index, Value);
 
         public FibonacciMessage()
         {
         }
 
-        public FibonacciMessage(int value, string correlationId)
+        public FibonacciMessage(FibonacciNumber number, string correlationId)
         {
-            Value = value;
+            Index = number.Index;
+            Value = number.Value;
             CorrelationId = correlationId;
         }
     }

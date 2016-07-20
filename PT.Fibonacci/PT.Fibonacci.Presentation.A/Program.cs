@@ -5,6 +5,8 @@ using PT.Fibonacci.Presentation.A.CommandLine;
 using StructureMap;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using PT.Fibonacci.Presentation.A.Dependencies;
+using PT.Fibonacci.Presentation.A.Processing;
 
 namespace PT.Fibonacci.Presentation.A
 {

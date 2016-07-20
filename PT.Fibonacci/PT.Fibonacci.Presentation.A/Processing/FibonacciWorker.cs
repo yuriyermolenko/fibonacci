@@ -1,9 +1,11 @@
 ﻿using System.Threading.Tasks;
 using PT.Fibonacci.Application.Base.Services;
+using PT.Fibonacci.Domain;
 using PT.Fibonacci.Domain.Contracts;
 using PT.Fibonacci.Infrastructure.Base.Logging;
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 using PT.Fibonacci.Presentation.Base;
+using PT.Fibonacci.Presentation.Base.Processing;
 
 namespace PT.Fibonacci.Presentation.A.Processing
 {
@@ -33,7 +35,7 @@ namespace PT.Fibonacci.Presentation.A.Processing
             Logger.LogInfo("Starting worker");
 
             _messageReceiver.Start();
-            DoWork(new FibonacciRequest(0, SourceId));
+            DoWork(new FibonacciRequest(new FibonacciNumber(0, 0), SourceId));
         }
 
         protected virtual void OnMessageReceived(object sender, MessageReceivedEventArgs e)
@@ -46,9 +48,9 @@ namespace PT.Fibonacci.Presentation.A.Processing
 
                 if (fibonacciMessage != null)
                 {
-                    Logger.LogInfo($"Received value: {fibonacciMessage.Value} ");
+                    Logger.LogInfo($"Received value: {fibonacciMessage.Number}");
 
-                    DoWork(new FibonacciRequest(fibonacciMessage.Value, fibonacciMessage.CorrelationId));
+                    DoWork(new FibonacciRequest(fibonacciMessage.Number, fibonacciMessage.CorrelationId));
                 }
             } else
             {

@@ -1,12 +1,14 @@
-﻿namespace PT.Fibonacci.Application.Base.Services
+﻿using PT.Fibonacci.Domain;
+
+namespace PT.Fibonacci.Application.Base.Services
 {
     public class FibonacciResponse
     {
-        public int Value { get; private set; }
+        public FibonacciNumber Number { get; private set; }
 
-        public FibonacciResponse(int value)
+        public FibonacciResponse(FibonacciNumber number)
         {
-            Value = value;
+            Number = number;
         }
     }
 }
