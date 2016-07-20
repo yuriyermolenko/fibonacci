@@ -6,7 +6,7 @@
 
         public FibonacciResponse(int value)
         {
-            this.Value = value;
+            Value = value;
         }
     }
 }

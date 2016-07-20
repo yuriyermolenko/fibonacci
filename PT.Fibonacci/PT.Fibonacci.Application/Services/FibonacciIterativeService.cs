@@ -6,7 +6,7 @@ namespace PT.Fibonacci.Application.Services
 {
     public class FibonacciIterativeService : IFibonacciService
     {
-        private static ILogger Logger = LoggerFactory.CreateLog();
+        private static readonly ILogger Logger = LoggerFactory.CreateLog();
 
         public FibonacciResponse CalculateFibonacci(FibonacciRequest request)
         {

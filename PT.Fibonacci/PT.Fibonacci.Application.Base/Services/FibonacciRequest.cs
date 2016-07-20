@@ -7,8 +7,8 @@
 
         public FibonacciRequest(int value, string correlationId)
         {
-            this.Value = value;
-            this.CorrelationId = correlationId;
+            Value = value;
+            CorrelationId = correlationId;
         }
     }
 }

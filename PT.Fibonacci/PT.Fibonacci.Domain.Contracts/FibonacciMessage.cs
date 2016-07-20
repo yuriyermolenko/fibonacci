@@ -1,5 +1,4 @@
-﻿using System;
-using PT.Fibonacci.Infrastructure.Base.Messaging;
+﻿using PT.Fibonacci.Infrastructure.Base.Messaging;
 
 namespace PT.Fibonacci.Domain.Contracts
 {
@@ -14,8 +13,8 @@ namespace PT.Fibonacci.Domain.Contracts
 
         public FibonacciMessage(int value, string correlationId)
         {
-            this.Value = value;
-            this.CorrelationId = correlationId;
+            Value = value;
+            CorrelationId = correlationId;
         }
     }
 }

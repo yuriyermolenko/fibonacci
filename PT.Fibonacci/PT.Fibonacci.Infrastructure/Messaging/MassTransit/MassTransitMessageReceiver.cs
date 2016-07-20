@@ -2,7 +2,6 @@
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 using MassTransit;
 using System.Threading.Tasks;
-using PT.Fibonacci.Domain.Contracts;
 
 namespace PT.Fibonacci.Infrastructure.Messaging.MassTransit
 {
@@ -50,7 +49,7 @@ namespace PT.Fibonacci.Infrastructure.Messaging.MassTransit
 
         protected virtual void OnReceived(IMessage message)
         {
-            this.Received?.Invoke(this, new MessageReceivedEventArgs(message));
+            Received?.Invoke(this, new MessageReceivedEventArgs(message));
         }
     }
 }

@@ -7,7 +7,7 @@ namespace PT.Fibonacci.Presentation.B.Controllers
 {
     public class FibonacciController : ApiController
     {
-        private static ILogger _logger = LoggerFactory.CreateLog();
+        private static readonly ILogger Logger = LoggerFactory.CreateLog();
 
         private readonly FibonacciWorker _worker;
 
@@ -19,8 +19,8 @@ namespace PT.Fibonacci.Presentation.B.Controllers
         [HttpPost]
         public HttpResponseMessage Post(FibonacciMessage message)
         {
-            _logger.LogInfo($"Received:{message.CorrelationId}:{message.Value}");
-            _logger.LogInfo($"Starting worker for:{message.CorrelationId}:{message.Value}");
+            Logger.LogInfo($"Received:{message.CorrelationId}:{message.Value}");
+            Logger.LogInfo($"Starting worker for:{message.CorrelationId}:{message.Value}");
 
             _worker.Perform(message);
 

@@ -9,7 +9,7 @@ namespace PT.Fibonacci.Presentation.A
 {
     public class FibonacciWorker : FibonacciWorkerBase
     {
-        private static ILogger _logger = LoggerFactory.CreateLog();
+        private static readonly ILogger Logger = LoggerFactory.CreateLog();
 
         private readonly IMessageReceiver _messageReceiver;
 
@@ -30,15 +30,15 @@ namespace PT.Fibonacci.Presentation.A
 
         public void Start()
         {
-            _logger.LogInfo("Starting worker");
+            Logger.LogInfo("Starting worker");
 
             _messageReceiver.Start();
-            DoWork(new FibonacciRequest(0, this.SourceId));
+            DoWork(new FibonacciRequest(0, SourceId));
         }
 
         protected virtual void OnMessageReceived(object sender, MessageReceivedEventArgs e)
         {
-            _logger.LogInfo($"Received message: {e.Message.CorrelationId}");
+            Logger.LogInfo($"Received message: {e.Message.CorrelationId}");
 
             if (e.Message.CorrelationId == SourceId)
             {
@@ -46,13 +46,13 @@ namespace PT.Fibonacci.Presentation.A
 
                 if (fibonacciMessage != null)
                 {
-                    _logger.LogInfo($"Received value: {fibonacciMessage.Value} ");
+                    Logger.LogInfo($"Received value: {fibonacciMessage.Value} ");
 
                     DoWork(new FibonacciRequest(fibonacciMessage.Value, fibonacciMessage.CorrelationId));
                 }
             } else
             {
-                _logger.LogInfo($"Skipping it");
+                Logger.LogInfo($"Skipping message: {e.Message.CorrelationId}");
             }
         }
     }

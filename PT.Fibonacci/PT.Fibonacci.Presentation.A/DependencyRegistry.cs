@@ -22,14 +22,14 @@ namespace PT.Fibonacci.Presentation.A
             var restSettings = (RestConfigurationSettings)config.Sections["rest"];
             var messageBusSettings = (MassTransitConfigurationSettings)config.Sections["messagebus"];
 
-            For<RestConfiguration>().Use<RestConfiguration>(
+            For<RestConfiguration>().Use(
                 new RestConfiguration
                 {
                     Url = restSettings.Url,
                     Route = restSettings.Route
                 });
 
-            For<MassTransitConfiguration>().Use<MassTransitConfiguration>(
+            For<MassTransitConfiguration>().Use(
                new MassTransitConfiguration
                {
                    Host = messageBusSettings.Host,

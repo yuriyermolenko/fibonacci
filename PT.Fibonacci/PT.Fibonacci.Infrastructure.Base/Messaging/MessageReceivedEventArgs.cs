@@ -8,7 +8,7 @@ namespace PT.Fibonacci.Infrastructure.Base.Messaging
 
         public MessageReceivedEventArgs(IMessage message)
         {
-            this.Message = message;
+            Message = message;
         }
     }
 }

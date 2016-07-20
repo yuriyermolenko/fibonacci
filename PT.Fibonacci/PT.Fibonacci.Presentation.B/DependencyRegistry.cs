@@ -19,7 +19,7 @@ namespace PT.Fibonacci.Presentation.B
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var messageBusSettings = (MassTransitConfigurationSettings)config.Sections["messagebus"];
 
-            For<MassTransitConfiguration>().Use<MassTransitConfiguration>(
+            For<MassTransitConfiguration>().Use(
                new MassTransitConfiguration
                {
                    Host = messageBusSettings.Host,

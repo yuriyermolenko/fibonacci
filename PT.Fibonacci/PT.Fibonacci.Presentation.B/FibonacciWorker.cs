@@ -16,7 +16,7 @@ namespace PT.Fibonacci.Presentation.B
 
         public void Perform(FibonacciMessage message)
         {
-            base.DoWork(new FibonacciRequest(message.Value, message.CorrelationId));
+            DoWork(new FibonacciRequest(message.Value, message.CorrelationId));
         }
     }
 }

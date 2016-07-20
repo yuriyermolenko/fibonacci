@@ -2,11 +2,10 @@
 using PT.Fibonacci.Domain.Contracts;
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 using System;
-using System.Threading.Tasks;
 
 namespace PT.Fibonacci.Presentation.Base
 {
-    abstract public class FibonacciWorkerBase
+    public abstract class FibonacciWorkerBase
     {
         protected readonly IFibonacciService FibonacciService;
         protected readonly IMessageSender<FibonacciMessage> MessageSender;
@@ -18,8 +17,8 @@ namespace PT.Fibonacci.Presentation.Base
         {
             SourceId = Guid.NewGuid().ToString();
 
-            this.FibonacciService = fibonacciService;
-            this.MessageSender = messageSender;
+            FibonacciService = fibonacciService;
+            MessageSender = messageSender;
         }
 
         protected virtual void DoWork(FibonacciRequest request)
