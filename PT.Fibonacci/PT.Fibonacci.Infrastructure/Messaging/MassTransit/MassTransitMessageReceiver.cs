@@ -16,12 +16,14 @@ namespace PT.Fibonacci.Infrastructure.Messaging.MassTransit
 
         public void Start()
         {
-            throw new NotImplementedException();
+            // TODO
+            //throw new NotImplementedException();
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            // TODO
+            //throw new NotImplementedException();
         }
 
         protected virtual void OnReceived(IMessage message)

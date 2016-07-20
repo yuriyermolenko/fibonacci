@@ -2,6 +2,7 @@
 using PT.Fibonacci.Presentation.A.CommandLine;
 using PT.Fibonacci.Presentation.Base;
 using StructureMap;
+using System;
 
 namespace PT.Fibonacci.Presentation.A
 {
@@ -19,6 +20,8 @@ namespace PT.Fibonacci.Presentation.A
 
                 //worker.StartAsync();
                 worker.Start();
+
+                Console.ReadLine();
             }
         }
     }

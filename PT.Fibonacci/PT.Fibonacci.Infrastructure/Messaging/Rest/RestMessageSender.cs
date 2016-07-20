@@ -1,5 +1,6 @@
 ﻿using System;
 using PT.Fibonacci.Infrastructure.Base.Messaging;
+using RestSharp;
 
 namespace PT.Fibonacci.Infrastructure.Messaging.Rest
 {
@@ -14,7 +15,17 @@ namespace PT.Fibonacci.Infrastructure.Messaging.Rest
         
         public void Send(IMessage message)
         {
-            throw new NotImplementedException();
+            var client = new RestClient(_config.TargetUrl);
+
+            var request = new RestRequest(_config.TargetRoute, Method.POST);
+            request.AddObject(message);
+
+            IRestResponse response = client.Execute(request);
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception("to be defined");
+            }
         }
     }
 }

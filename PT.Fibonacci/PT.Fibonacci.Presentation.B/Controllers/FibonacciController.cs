@@ -13,8 +13,8 @@ namespace PT.Fibonacci.Presentation.B.Controllers
             _worker = worker;
         }
 
-        [HttpGet]
-        public HttpResponseMessage Get([FromUri]FibonacciMessage message)
+        [HttpPost]
+        public HttpResponseMessage Post(FibonacciMessage message)
         {
             _worker.Perform(message);
 

@@ -16,12 +16,12 @@ namespace PT.Fibonacci.Infrastructure.Messaging.Rest
 
         public void Start()
         {
-            throw new NotImplementedException();
+            // TODO
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            // TODO
         }
 
         protected virtual void OnReceived(IMessage message)

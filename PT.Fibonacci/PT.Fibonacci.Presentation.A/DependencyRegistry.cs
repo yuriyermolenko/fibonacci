@@ -13,8 +13,14 @@ namespace PT.Fibonacci.Presentation.A
         {
             For<IFibonacciService>().Use<FibonacciIterativeService>();
             For<IMessageSender>().Use<RestMessageSender>();
-            //For<IMessageReceiver>().Use<MassTransitMessageReceiver>();
-            For<IMessageReceiver>().Use<RestMessageReceiver>();
+            For<IMessageReceiver>().Use<MassTransitMessageReceiver>();
+
+            For<RestConfiguration>().Use<RestConfiguration>(
+                new RestConfiguration
+                {
+                    TargetUrl = "http://localhost:8080/",
+                    TargetRoute = "api/fibonacci"
+                });
         }
     }
 }
