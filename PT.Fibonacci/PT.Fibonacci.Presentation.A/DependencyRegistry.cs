@@ -21,6 +21,14 @@ namespace PT.Fibonacci.Presentation.A
                     TargetUrl = "http://localhost:8080/",
                     TargetRoute = "api/fibonacci"
                 });
+
+            For<MassTransitConfiguration>().Use<MassTransitConfiguration>(
+               new MassTransitConfiguration
+               {
+                   Host = "rabbitmq://localhost/",
+                   Username = "echelon",
+                   Password = "echeloncorp"
+               });
         }
     }
 }
