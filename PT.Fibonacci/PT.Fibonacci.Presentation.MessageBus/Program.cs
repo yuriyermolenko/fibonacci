@@ -1,14 +1,14 @@
-﻿using CommandLine;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using CommandLine;
 using PT.Fibonacci.Infrastructure.Base.Logging;
 using PT.Fibonacci.Infrastructure.Logging;
-using PT.Fibonacci.Presentation.A.CommandLine;
+using PT.Fibonacci.Presentation.MessageBus.CommandLine;
+using PT.Fibonacci.Presentation.MessageBus.Dependencies;
+using PT.Fibonacci.Presentation.MessageBus.Processing;
 using StructureMap;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using PT.Fibonacci.Presentation.A.Dependencies;
-using PT.Fibonacci.Presentation.A.Processing;
 
-namespace PT.Fibonacci.Presentation.A
+namespace PT.Fibonacci.Presentation.MessageBus
 {
     class Program
     {

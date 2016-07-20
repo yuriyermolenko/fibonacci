@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PT.Fibonacci.Application.Services;
 using PT.Fibonacci.Infrastructure.Base.Logging;
 using PT.Fibonacci.Infrastructure.Logging;
@@ -18,6 +17,8 @@ namespace PT.Fibonacci.Application.Test.Services
         [TestMethod]
         public void CalculateNthNumberTests()
         {
+            var service = new FibonacciIterativeService();
+
             Assert.AreEqual(1, FibonacciIterativeService.CalculateNthFibonacciNumber(1));
             Assert.AreEqual(1, FibonacciIterativeService.CalculateNthFibonacciNumber(2));
             Assert.AreEqual(2, FibonacciIterativeService.CalculateNthFibonacciNumber(3));

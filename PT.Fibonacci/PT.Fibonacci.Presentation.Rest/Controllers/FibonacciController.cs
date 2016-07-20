@@ -1,10 +1,10 @@
-﻿using PT.Fibonacci.Domain.Contracts;
-using PT.Fibonacci.Infrastructure.Base.Logging;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Web.Http;
-using PT.Fibonacci.Presentation.B.Processing;
+using PT.Fibonacci.Domain.Contracts;
+using PT.Fibonacci.Infrastructure.Base.Logging;
+using PT.Fibonacci.Presentation.Rest.Processing;
 
-namespace PT.Fibonacci.Presentation.B.Controllers
+namespace PT.Fibonacci.Presentation.Rest.Controllers
 {
     public class FibonacciController : ApiController
     {

@@ -1,11 +1,11 @@
-﻿using Owin;
+﻿using System.Web.Http;
+using Owin;
 using PT.Fibonacci.Infrastructure.Base.Logging;
 using PT.Fibonacci.Infrastructure.Logging;
-using System.Web.Http;
-using PT.Fibonacci.Presentation.B.Dependencies;
+using PT.Fibonacci.Presentation.Rest.Dependencies;
 using WebApi.StructureMap;
 
-namespace PT.Fibonacci.Presentation.B
+namespace PT.Fibonacci.Presentation.Rest
 {
     public class Startup
     {
@@ -13,8 +13,7 @@ namespace PT.Fibonacci.Presentation.B
         {
             // Configure Web API for self-host. 
             var config = new HttpConfiguration();
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
+            HttpRouteCollectionExtensions.MapHttpRoute(config.Routes, name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );

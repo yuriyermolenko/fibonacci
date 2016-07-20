@@ -8,7 +8,7 @@ using PT.Fibonacci.Infrastructure.Messaging.Rest;
 using PT.Fibonacci.Presentation.Base.Configuration;
 using StructureMap;
 
-namespace PT.Fibonacci.Presentation.A.Dependencies
+namespace PT.Fibonacci.Presentation.MessageBus.Dependencies
 {
     public class DependencyRegistry : Registry
     {

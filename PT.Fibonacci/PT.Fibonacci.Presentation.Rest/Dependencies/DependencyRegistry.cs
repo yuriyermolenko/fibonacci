@@ -7,7 +7,7 @@ using PT.Fibonacci.Infrastructure.Messaging.MassTransit;
 using PT.Fibonacci.Presentation.Base.Configuration;
 using StructureMap;
 
-namespace PT.Fibonacci.Presentation.B.Dependencies
+namespace PT.Fibonacci.Presentation.Rest.Dependencies
 {
     public class DependencyRegistry : Registry
     {

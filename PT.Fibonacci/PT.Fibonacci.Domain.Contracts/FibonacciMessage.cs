@@ -1,5 +1,4 @@
-﻿using System.Data.SqlTypes;
-using PT.Fibonacci.Infrastructure.Base.Messaging;
+﻿using PT.Fibonacci.Infrastructure.Base.Messaging;
 
 namespace PT.Fibonacci.Domain.Contracts
 {

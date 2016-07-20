@@ -1,7 +1,7 @@
 ﻿using CommandLine;
 using CommandLine.Text;
 
-namespace PT.Fibonacci.Presentation.A.CommandLine
+namespace PT.Fibonacci.Presentation.MessageBus.CommandLine
 {
     public class Options
     {

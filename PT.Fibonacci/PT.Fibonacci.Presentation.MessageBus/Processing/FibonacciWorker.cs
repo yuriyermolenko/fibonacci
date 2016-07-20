@@ -6,7 +6,7 @@ using PT.Fibonacci.Infrastructure.Base.Logging;
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 using PT.Fibonacci.Presentation.Base.Processing;
 
-namespace PT.Fibonacci.Presentation.A.Processing
+namespace PT.Fibonacci.Presentation.MessageBus.Processing
 {
     public class FibonacciWorker : FibonacciWorkerBase
     {

@@ -1,9 +1,9 @@
-﻿using Microsoft.Owin.Hosting;
-using PT.Fibonacci.Presentation.Base.Configuration;
-using System;
+﻿using System;
 using System.Configuration;
+using Microsoft.Owin.Hosting;
+using PT.Fibonacci.Presentation.Base.Configuration;
 
-namespace PT.Fibonacci.Presentation.B
+namespace PT.Fibonacci.Presentation.Rest
 {
     class Program
     {

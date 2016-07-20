@@ -1,6 +1,5 @@
 ﻿using System;
 using PT.Fibonacci.Application.Base.Services;
-using PT.Fibonacci.Domain;
 using PT.Fibonacci.Domain.Contracts;
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 
