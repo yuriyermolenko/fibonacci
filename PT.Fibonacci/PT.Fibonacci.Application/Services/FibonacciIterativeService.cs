@@ -21,9 +21,9 @@ namespace PT.Fibonacci.Application.Services
             return new FibonacciResponse(result);
         }
 
-        public static int CalculateNthFibonacciNumber(int index)
+        public static decimal CalculateNthFibonacciNumber(int index)
         {
-            var fibonacciNumbers = new int[index + 1];
+            var fibonacciNumbers = new decimal[index + 1];
 
             fibonacciNumbers[0] = 0;
             fibonacciNumbers[1] = 1;

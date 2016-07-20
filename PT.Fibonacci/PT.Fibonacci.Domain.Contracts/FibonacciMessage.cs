@@ -8,7 +8,7 @@ namespace PT.Fibonacci.Domain.Contracts
         public string CorrelationId { get; set; }
 
         public int Index { get; set; }
-        public int Value { get; set; }
+        public decimal Value { get; set; }
 
         public FibonacciNumber Number => new FibonacciNumber(Value, Index);
 
