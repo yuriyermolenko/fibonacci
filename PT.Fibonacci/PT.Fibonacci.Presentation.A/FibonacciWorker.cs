@@ -46,7 +46,7 @@ namespace PT.Fibonacci.Presentation.A
 
                 if (fibonacciMessage != null)
                 {
-                    _logger.LogInfo($"Received message: {fibonacciMessage.Value} ");
+                    _logger.LogInfo($"Received value: {fibonacciMessage.Value} ");
 
                     DoWork(new FibonacciRequest(fibonacciMessage.Value, fibonacciMessage.CorrelationId));
                 }

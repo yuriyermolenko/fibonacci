@@ -17,8 +17,7 @@ namespace PT.Fibonacci.Presentation.B
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
-
+            
             config.UseStructureMap(x =>
             {
                 x.AddRegistry<DependencyRegistry>();

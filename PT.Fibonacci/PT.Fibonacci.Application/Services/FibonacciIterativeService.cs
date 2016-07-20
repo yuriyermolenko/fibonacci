@@ -1,16 +1,19 @@
 ﻿using PT.Fibonacci.Application.Base.Services;
+using PT.Fibonacci.Infrastructure.Base.Logging;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace PT.Fibonacci.Application.Services
 {
     public class FibonacciIterativeService : IFibonacciService
     {
+        private static ILogger Logger = LoggerFactory.CreateLog();
+
         public FibonacciResponse CalculateFibonacci(FibonacciRequest request)
         {
+            Logger.LogInfo($"Starting calculation for {request.Value}");
+
             Thread.Sleep(500);
 
-            // TODO to implement
             return new FibonacciResponse(request.Value + 1);
         }
     }

@@ -3,7 +3,9 @@ using PT.Fibonacci.Application.Services;
 using PT.Fibonacci.Domain.Contracts;
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 using PT.Fibonacci.Infrastructure.Messaging.MassTransit;
+using PT.Fibonacci.Presentation.Base.Configuration;
 using StructureMap;
+using System.Configuration;
 
 namespace PT.Fibonacci.Presentation.B
 {
@@ -14,12 +16,15 @@ namespace PT.Fibonacci.Presentation.B
             For<IFibonacciService>().Use<FibonacciIterativeService>();
             For<IMessageSender<FibonacciMessage>>().Use<MassTransitMessageSender<FibonacciMessage>>();
 
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var messageBusSettings = (MassTransitConfigurationSettings)config.Sections["messagebus"];
+
             For<MassTransitConfiguration>().Use<MassTransitConfiguration>(
                new MassTransitConfiguration
                {
-                   Host = "rabbitmq://localhost/",
-                   Username = "echelon",
-                   Password = "echeloncorp"
+                   Host = messageBusSettings.Host,
+                   Username = messageBusSettings.Username,
+                   Password = messageBusSettings.Password
                });
         }
     }
