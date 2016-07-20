@@ -15,10 +15,10 @@ namespace PT.Fibonacci.Infrastructure.Messaging.MassTransit
 
             _host = Bus.Factory.CreateUsingRabbitMq(cfg =>
             {
-                var host = cfg.Host(new Uri("rabbitmq://localhost/"), h =>
+                var host = cfg.Host(new Uri(config.Host), h =>
                 {
-                    h.Username("echelon");
-                    h.Password("echeloncorp");
+                    h.Username(config.Username);
+                    h.Password(config.Password);
                 });
             });
         }

@@ -13,6 +13,14 @@ namespace PT.Fibonacci.Presentation.B
         {
             For<IFibonacciService>().Use<FibonacciIterativeService>();
             For<IMessageSender>().Use<MassTransitMessageSender>();
+
+            For<MassTransitConfiguration>().Use<MassTransitConfiguration>(
+               new MassTransitConfiguration
+               {
+                   Host = "rabbitmq://localhost/",
+                   Username = "echelon",
+                   Password = "echeloncorp"
+               });
         }
     }
 }
