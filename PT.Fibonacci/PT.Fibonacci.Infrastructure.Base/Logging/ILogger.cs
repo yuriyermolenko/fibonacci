@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PT.Fibonacci.Infrastructure.Logging
+namespace PT.Fibonacci.Infrastructure.Base.Logging
 {
     public interface ILogger
     {

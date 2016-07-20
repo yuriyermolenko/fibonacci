@@ -41,7 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IFibonacciService.cs" />
+    <Compile Include="Services\FibonacciIterativeService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PT.Fibonacci.Application.Base\PT.Fibonacci.Application.Base.csproj">
+      <Project>{f9fde64f-17c9-4887-a3b8-40ffe7b2d3f5}</Project>
+      <Name>PT.Fibonacci.Application.Base</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
