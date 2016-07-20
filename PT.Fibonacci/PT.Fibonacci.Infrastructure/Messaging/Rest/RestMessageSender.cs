@@ -4,7 +4,7 @@ using RestSharp;
 
 namespace PT.Fibonacci.Infrastructure.Messaging.Rest
 {
-    public class RestMessageSender : IMessageSender
+    public class RestMessageSender<T> : IMessageSender<T> where T : class, IMessage
     {
         private readonly RestConfiguration _config;
 
@@ -13,7 +13,7 @@ namespace PT.Fibonacci.Infrastructure.Messaging.Rest
             _config = config;
         }
         
-        public void Send(IMessage message)
+        public void Send(T message)
         {
             var client = new RestClient(_config.TargetUrl);
 

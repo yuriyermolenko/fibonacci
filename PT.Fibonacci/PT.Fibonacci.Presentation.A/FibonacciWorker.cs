@@ -13,8 +13,8 @@ namespace PT.Fibonacci.Presentation.A
         private readonly IMessageReceiver _messageReceiver;
 
         public FibonacciWorker(
-            IFibonacciService fibonacciService, 
-            IMessageSender messageSender, 
+            IFibonacciService fibonacciService,
+            IMessageSender<FibonacciMessage> messageSender, 
             IMessageReceiver messageReceiver) :
             base(fibonacciService, messageSender)
         {

@@ -1,5 +1,6 @@
 ﻿using PT.Fibonacci.Application.Base.Services;
 using PT.Fibonacci.Application.Services;
+using PT.Fibonacci.Domain.Contracts;
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 using PT.Fibonacci.Infrastructure.Messaging.MassTransit;
 using PT.Fibonacci.Infrastructure.Messaging.Rest;
@@ -12,8 +13,8 @@ namespace PT.Fibonacci.Presentation.A
         public DependencyRegistry()
         {
             For<IFibonacciService>().Use<FibonacciIterativeService>();
-            For<IMessageSender>().Use<RestMessageSender>();
-            For<IMessageReceiver>().Use<MassTransitMessageReceiver>();
+            For<IMessageSender<FibonacciMessage>>().Use<RestMessageSender<FibonacciMessage>>();
+            For<IMessageReceiver>().Use<MassTransitMessageReceiver<FibonacciMessage>>();
 
             For<RestConfiguration>().Use<RestConfiguration>(
                 new RestConfiguration

@@ -1,7 +1,7 @@
 ﻿namespace PT.Fibonacci.Infrastructure.Base.Messaging
 {
-    public interface IMessageSender
+    public interface IMessageSender<T> where T : IMessage
     {
-        void Send(IMessage message);
+        void Send(T message);
     }
 }

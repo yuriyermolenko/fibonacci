@@ -9,12 +9,12 @@ namespace PT.Fibonacci.Presentation.Base
     abstract public class FibonacciWorkerBase
     {
         protected readonly IFibonacciService FibonacciService;
-        protected readonly IMessageSender MessageSender;
+        protected readonly IMessageSender<FibonacciMessage> MessageSender;
         protected string SourceId;
 
         protected FibonacciWorkerBase(
             IFibonacciService fibonacciService,
-            IMessageSender messageSender)
+            IMessageSender<FibonacciMessage> messageSender)
         {
             SourceId = Guid.NewGuid().ToString();
 
@@ -26,7 +26,7 @@ namespace PT.Fibonacci.Presentation.Base
         {
             var result = FibonacciService.CalculateFibonacci(request);
 
-            var message = new FibonacciMessage(result.Value, SourceId);
+            var message = new FibonacciMessage(result.Value, request.CorrelationId);
 
             MessageSender.Send(message);
         }

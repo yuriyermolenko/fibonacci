@@ -2,17 +2,19 @@
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 using MassTransit;
 using System.Threading.Tasks;
+using PT.Fibonacci.Domain.Contracts;
 
 namespace PT.Fibonacci.Infrastructure.Messaging.MassTransit
 {
-    public class MassTransitMessageReceiver : IMessageReceiver, IConsumer<IMessage>
+    public class MassTransitMessageReceiver<T> : IMessageReceiver where T: class, IMessage
     {
         public event EventHandler<MessageReceivedEventArgs> Received;
 
         private readonly MassTransitConfiguration _config;
         private readonly IBusControl _host;
 
-        public MassTransitMessageReceiver(MassTransitConfiguration config)
+        public MassTransitMessageReceiver(
+            MassTransitConfiguration config)
         {
             _config = config;
 
@@ -26,7 +28,12 @@ namespace PT.Fibonacci.Infrastructure.Messaging.MassTransit
 
                 cfg.ReceiveEndpoint(host, e =>
                 {
-                    e.Instance(this);
+                    e.Handler<T>(context =>
+                    {
+                        OnReceived(context.Message);
+
+                        return Task.FromResult(0);
+                    });
                 });
             });
         }
@@ -44,12 +51,6 @@ namespace PT.Fibonacci.Infrastructure.Messaging.MassTransit
         protected virtual void OnReceived(IMessage message)
         {
             this.Received?.Invoke(this, new MessageReceivedEventArgs(message));
-        }
-
-        public Task Consume(ConsumeContext<IMessage> context)
-        {
-            OnReceived(context.Message);
-            return Task.FromResult(0);
         }
     }
 }

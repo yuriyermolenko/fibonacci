@@ -8,8 +8,8 @@ namespace PT.Fibonacci.Presentation.B
     public class FibonacciWorker : FibonacciWorkerBase
     {
         public FibonacciWorker(
-            IFibonacciService fibonacciService, 
-            IMessageSender messageSender) 
+            IFibonacciService fibonacciService,
+            IMessageSender<FibonacciMessage> messageSender) 
             : base(fibonacciService, messageSender)
         {
         }

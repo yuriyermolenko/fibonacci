@@ -80,6 +80,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\PT.Fibonacci.Domain.Contracts\PT.Fibonacci.Domain.Contracts.csproj">
+      <Project>{A1E51903-8571-47E4-A9A1-6BE2BD763E74}</Project>
+      <Name>PT.Fibonacci.Domain.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PT.Fibonacci.Infrastructure.Base\PT.Fibonacci.Infrastructure.Base.csproj">
       <Project>{80e5b91a-76a6-411b-a3c6-69d5f1bbd202}</Project>
       <Name>PT.Fibonacci.Infrastructure.Base</Name>

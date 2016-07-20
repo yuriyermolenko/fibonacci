@@ -4,7 +4,7 @@ using MassTransit;
 
 namespace PT.Fibonacci.Infrastructure.Messaging.MassTransit
 {
-    public class MassTransitMessageSender : IMessageSender
+    public class MassTransitMessageSender<T> : IMessageSender<T> where T : class, IMessage
     {
         private readonly MassTransitConfiguration _config;
         private readonly IBusControl _host;
@@ -23,7 +23,7 @@ namespace PT.Fibonacci.Infrastructure.Messaging.MassTransit
             });
         }
 
-        public void Send(IMessage message)
+        public void Send(T message)
         {
             _host.Publish(message);
         }
