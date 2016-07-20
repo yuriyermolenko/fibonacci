@@ -15,7 +15,10 @@ namespace PT.Fibonacci.Application.Services
 
             Thread.Sleep(500);
 
-            return new FibonacciResponse(new FibonacciNumber(CalculateNthFibonacciNumber(request.Number.Index + 1), request.Number.Index + 1));
+            var result = new FibonacciNumber(CalculateNthFibonacciNumber(request.Number.Index + 1),
+                request.Number.Index + 1);
+
+            return new FibonacciResponse(result);
         }
 
         public static int CalculateNthFibonacciNumber(int index)

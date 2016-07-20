@@ -10,7 +10,7 @@ namespace PT.Fibonacci.Domain.Contracts
         public int Index { get; set; }
         public int Value { get; set; }
 
-        public FibonacciNumber Number => new FibonacciNumber(Index, Value);
+        public FibonacciNumber Number => new FibonacciNumber(Value, Index);
 
         public FibonacciMessage()
         {
