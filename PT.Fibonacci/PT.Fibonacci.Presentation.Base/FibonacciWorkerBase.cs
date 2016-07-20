@@ -10,30 +10,19 @@ namespace PT.Fibonacci.Presentation.Base
     {
         protected readonly IFibonacciService FibonacciService;
         protected readonly IMessageSender MessageSender;
-        protected readonly IMessageReceiver MessageReceiver;
-
-        private string _sourceId;
+        protected string SourceId;
 
         protected FibonacciWorkerBase(
             IFibonacciService fibonacciService,
-            IMessageSender messageSender,
-            IMessageReceiver messageReceiver)
+            IMessageSender messageSender)
         {
-            _sourceId = Guid.NewGuid().ToString();
+            SourceId = Guid.NewGuid().ToString();
 
             this.FibonacciService = fibonacciService;
             this.MessageSender = messageSender;
-            this.MessageReceiver = messageReceiver;
-
-            this.MessageReceiver.Received += OnMessageReceived;
         }
 
-        public void StartAsync()
-        {
-            Task.Run(() => Start());
-        }
-
-        public void Start()
+        public virtual void Start()
         {
             DoWork(new FibonacciRequest(0));
         }
@@ -42,22 +31,9 @@ namespace PT.Fibonacci.Presentation.Base
         {
             var result = FibonacciService.CalculateFibonacci(request);
 
-            var message = new FibonacciMessage(result.Value, _sourceId);
+            var message = new FibonacciMessage(result.Value, SourceId);
 
             MessageSender.Send(message);
-        }
-
-        private void OnMessageReceived(object sender, MessageReceivedEventArgs e)
-        {
-            if (e.Message.CorrelationId == _sourceId)
-            {
-                var fibonacciMessage = e.Message as FibonacciMessage;
-
-                if (fibonacciMessage != null) {
-
-                    DoWork(new FibonacciRequest(fibonacciMessage.Value));
-                }
-            }
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using CommandLine;
 using PT.Fibonacci.Presentation.A.CommandLine;
+using PT.Fibonacci.Presentation.Base;
+using StructureMap;
 
 namespace PT.Fibonacci.Presentation.A
 {
@@ -11,7 +13,12 @@ namespace PT.Fibonacci.Presentation.A
 
             if (Parser.Default.ParseArguments(args, commandLineOptions))
             {
+                var container = new Container(new DependencyRegistry());
 
+                var worker = container.GetInstance<FibonacciWorker>();
+
+                //worker.StartAsync();
+                worker.Start();
             }
         }
     }
