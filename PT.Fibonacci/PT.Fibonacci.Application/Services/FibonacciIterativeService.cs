@@ -15,7 +15,22 @@ namespace PT.Fibonacci.Application.Services
 
             Thread.Sleep(500);
 
-            return new FibonacciResponse(new FibonacciNumber(request.Number.Value + 1, request.Number.Index + 1));
+            return new FibonacciResponse(new FibonacciNumber(CalculateNthFibonacciNumber(request.Number.Index + 1), request.Number.Index + 1));
+        }
+
+        public static int CalculateNthFibonacciNumber(int index)
+        {
+            var fibonacciNumbers = new int[index + 1];
+
+            fibonacciNumbers[0] = 0;
+            fibonacciNumbers[1] = 1;
+
+            for (var i = 2; i <= index; i++)
+            {
+                fibonacciNumbers[i] = fibonacciNumbers[i - 2] + fibonacciNumbers[i - 1];
+            }
+
+            return fibonacciNumbers[index];
         }
     }
 }

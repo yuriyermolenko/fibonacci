@@ -68,6 +68,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logging\DoNothingLogger.cs" />
+    <Compile Include="Logging\DoNothingLogFactory.cs" />
     <Compile Include="Logging\NLogLogFactory.cs" />
     <Compile Include="Logging\NLogLogger.cs" />
     <Compile Include="Messaging\MassTransit\MassTransitConfiguration.cs" />
