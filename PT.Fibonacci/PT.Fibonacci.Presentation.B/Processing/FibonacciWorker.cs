@@ -1,9 +1,9 @@
-﻿using PT.Fibonacci.Presentation.Base;
-using PT.Fibonacci.Application.Base.Services;
-using PT.Fibonacci.Infrastructure.Base.Messaging;
+﻿using PT.Fibonacci.Application.Base.Services;
 using PT.Fibonacci.Domain.Contracts;
+using PT.Fibonacci.Infrastructure.Base.Messaging;
+using PT.Fibonacci.Presentation.Base;
 
-namespace PT.Fibonacci.Presentation.B
+namespace PT.Fibonacci.Presentation.B.Processing
 {
     public class FibonacciWorker : FibonacciWorkerBase
     {

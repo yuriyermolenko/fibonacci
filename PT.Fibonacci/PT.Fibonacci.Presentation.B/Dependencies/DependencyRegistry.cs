@@ -1,13 +1,13 @@
-﻿using PT.Fibonacci.Application.Base.Services;
+﻿using System.Configuration;
+using PT.Fibonacci.Application.Base.Services;
 using PT.Fibonacci.Application.Services;
 using PT.Fibonacci.Domain.Contracts;
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 using PT.Fibonacci.Infrastructure.Messaging.MassTransit;
 using PT.Fibonacci.Presentation.Base.Configuration;
 using StructureMap;
-using System.Configuration;
 
-namespace PT.Fibonacci.Presentation.B
+namespace PT.Fibonacci.Presentation.B.Dependencies
 {
     public class DependencyRegistry : Registry
     {

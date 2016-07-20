@@ -1,11 +1,11 @@
-﻿using PT.Fibonacci.Application.Base.Services;
+﻿using System.Threading.Tasks;
+using PT.Fibonacci.Application.Base.Services;
 using PT.Fibonacci.Domain.Contracts;
 using PT.Fibonacci.Infrastructure.Base.Logging;
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 using PT.Fibonacci.Presentation.Base;
-using System.Threading.Tasks;
 
-namespace PT.Fibonacci.Presentation.A
+namespace PT.Fibonacci.Presentation.A.Processing
 {
     public class FibonacciWorker : FibonacciWorkerBase
     {
