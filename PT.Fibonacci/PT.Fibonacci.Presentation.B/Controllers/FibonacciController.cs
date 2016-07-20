@@ -20,6 +20,7 @@ namespace PT.Fibonacci.Presentation.B.Controllers
         public HttpResponseMessage Post(FibonacciMessage message)
         {
             _logger.LogInfo($"Received:{message.CorrelationId}:{message.Value}");
+            _logger.LogInfo($"Starting worker for:{message.CorrelationId}:{message.Value}");
 
             _worker.Perform(message);
 

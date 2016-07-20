@@ -24,7 +24,7 @@ namespace PT.Fibonacci.Infrastructure.Messaging.Rest
 
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
-                throw new Exception("to be defined");
+                throw new Exception("the server went down"); // TODO add custom application exceptions
             }
         }
     }

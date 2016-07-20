@@ -2,7 +2,6 @@
 using PT.Fibonacci.Infrastructure.Base.Logging;
 using PT.Fibonacci.Infrastructure.Logging;
 using PT.Fibonacci.Presentation.A.CommandLine;
-using PT.Fibonacci.Presentation.Base;
 using StructureMap;
 using System;
 using System.Collections.Generic;
@@ -29,8 +28,6 @@ namespace PT.Fibonacci.Presentation.A
                 }
 
                 Task.WaitAll(tasks.ToArray());
-
-                Console.ReadLine();
             }
         }
 
