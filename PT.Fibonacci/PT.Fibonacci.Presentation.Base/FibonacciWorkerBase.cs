@@ -22,11 +22,6 @@ namespace PT.Fibonacci.Presentation.Base
             this.MessageSender = messageSender;
         }
 
-        public virtual void Start()
-        {
-            DoWork(new FibonacciRequest(0));
-        }
-
         protected virtual void DoWork(FibonacciRequest request)
         {
             var result = FibonacciService.CalculateFibonacci(request);

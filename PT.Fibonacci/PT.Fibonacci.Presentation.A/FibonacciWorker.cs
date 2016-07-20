@@ -19,10 +19,10 @@ namespace PT.Fibonacci.Presentation.A
             _messageReceiver.Received += OnMessageReceived;
         }
 
-        public override void Start()
+        public void Start()
         {
             _messageReceiver.Start();
-            DoWork(new FibonacciRequest(0));
+            DoWork(new FibonacciRequest(0, this.SourceId));
         }
 
         protected virtual void OnMessageReceived(object sender, MessageReceivedEventArgs e)
@@ -33,8 +33,7 @@ namespace PT.Fibonacci.Presentation.A
 
                 if (fibonacciMessage != null)
                 {
-
-                    DoWork(new FibonacciRequest(fibonacciMessage.Value));
+                    DoWork(new FibonacciRequest(fibonacciMessage.Value, fibonacciMessage.CorrelationId));
                 }
             }
         }

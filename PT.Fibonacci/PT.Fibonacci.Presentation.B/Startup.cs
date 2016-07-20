@@ -1,5 +1,6 @@
 ﻿using Owin;
 using System.Web.Http;
+using WebApi.StructureMap;
 
 namespace PT.Fibonacci.Presentation.B
 {
@@ -14,6 +15,12 @@ namespace PT.Fibonacci.Presentation.B
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
+            config.UseStructureMap(x =>
+            {
+                x.AddRegistry<DependencyRegistry>();
+            });
 
             app.UseWebApi(config);
         }
