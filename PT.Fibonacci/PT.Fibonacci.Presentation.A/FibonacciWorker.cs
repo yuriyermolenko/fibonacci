@@ -32,14 +32,21 @@ namespace PT.Fibonacci.Presentation.A
 
         protected virtual void OnMessageReceived(object sender, MessageReceivedEventArgs e)
         {
+            _logger.LogInfo($"Received message: {e.Message.CorrelationId}");
+
             if (e.Message.CorrelationId == SourceId)
             {
                 var fibonacciMessage = e.Message as FibonacciMessage;
 
                 if (fibonacciMessage != null)
                 {
+                    _logger.LogInfo($"Received message: {fibonacciMessage.Value} ");
+
                     DoWork(new FibonacciRequest(fibonacciMessage.Value, fibonacciMessage.CorrelationId));
                 }
+            } else
+            {
+                _logger.LogInfo($"Skipping it");
             }
         }
     }
