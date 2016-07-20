@@ -2,6 +2,6 @@
 {
     public interface IMessage
     {
-        string CorrelationId { get; set; }
+        string CorrelationId { get; }
     }
 }

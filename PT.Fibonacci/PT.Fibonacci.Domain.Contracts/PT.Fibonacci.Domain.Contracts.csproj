@@ -40,7 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FibonacciMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PT.Fibonacci.Infrastructure.Base\PT.Fibonacci.Infrastructure.Base.csproj">
+      <Project>{80E5B91A-76A6-411B-A3C6-69D5F1BBD202}</Project>
+      <Name>PT.Fibonacci.Infrastructure.Base</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
