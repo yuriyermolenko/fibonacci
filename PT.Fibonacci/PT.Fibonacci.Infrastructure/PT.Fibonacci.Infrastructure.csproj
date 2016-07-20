@@ -74,7 +74,6 @@
     <Compile Include="Messaging\MassTransit\MassTransitMessageReceiver.cs" />
     <Compile Include="Messaging\MassTransit\MassTransitMessageSender.cs" />
     <Compile Include="Messaging\Rest\RestConfiguration.cs" />
-    <Compile Include="Messaging\Rest\RestMessageReceiver.cs" />
     <Compile Include="Messaging\Rest\RestMessageSender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

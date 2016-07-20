@@ -5,6 +5,8 @@ using PT.Fibonacci.Presentation.A.CommandLine;
 using PT.Fibonacci.Presentation.Base;
 using StructureMap;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PT.Fibonacci.Presentation.A
 {
@@ -19,10 +21,14 @@ namespace PT.Fibonacci.Presentation.A
                 var container = new Container(new DependencyRegistry());
                 RegisterFactories();
 
-                var worker = container.GetInstance<FibonacciWorker>();
+                var tasks = new List<Task>(commandLineOptions.Threads);
 
-                //worker.StartAsync();
-                worker.Start();
+                for (var i = 0; i < commandLineOptions.Threads; i++)
+                {
+                    tasks.Add(container.GetInstance<FibonacciWorker>().StartAsync());
+                }
+
+                Task.WaitAll(tasks.ToArray());
 
                 Console.ReadLine();
             }

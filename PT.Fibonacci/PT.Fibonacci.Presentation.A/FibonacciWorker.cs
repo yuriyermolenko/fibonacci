@@ -3,6 +3,7 @@ using PT.Fibonacci.Domain.Contracts;
 using PT.Fibonacci.Infrastructure.Base.Logging;
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 using PT.Fibonacci.Presentation.Base;
+using System.Threading.Tasks;
 
 namespace PT.Fibonacci.Presentation.A
 {
@@ -20,6 +21,11 @@ namespace PT.Fibonacci.Presentation.A
         {
             _messageReceiver = messageReceiver;
             _messageReceiver.Received += OnMessageReceived;
+        }
+
+        public Task StartAsync()
+        {
+            return Task.Run(() => Start());
         }
 
         public void Start()

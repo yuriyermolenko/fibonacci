@@ -1,4 +1,6 @@
 ﻿using PT.Fibonacci.Application.Base.Services;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace PT.Fibonacci.Application.Services
 {
@@ -6,6 +8,8 @@ namespace PT.Fibonacci.Application.Services
     {
         public FibonacciResponse CalculateFibonacci(FibonacciRequest request)
         {
+            Thread.Sleep(500);
+
             // TODO to implement
             return new FibonacciResponse(request.Value + 1);
         }
