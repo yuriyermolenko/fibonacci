@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Messaging\MassTransit\MassTransitConfiguration.cs" />
     <Compile Include="Messaging\MassTransit\MassTransitMessageReceiver.cs" />
     <Compile Include="Messaging\MassTransit\MassTransitMessageSender.cs" />
     <Compile Include="Messaging\Rest\RestMessageReceiver.cs" />

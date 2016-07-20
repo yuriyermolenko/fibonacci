@@ -5,6 +5,15 @@ namespace PT.Fibonacci.Infrastructure.Messaging.MassTransit
 {
     public class MassTransitMessageReceiver : IMessageReceiver
     {
+        public event EventHandler<MessageReceivedEventArgs> Received;
+
+        private readonly MassTransitConfiguration _config;
+
+        public MassTransitMessageReceiver(MassTransitConfiguration config)
+        {
+            _config = config;
+        }
+
         public void Start()
         {
             throw new NotImplementedException();
@@ -13,6 +22,11 @@ namespace PT.Fibonacci.Infrastructure.Messaging.MassTransit
         public void Stop()
         {
             throw new NotImplementedException();
+        }
+
+        protected virtual void OnReceived(IMessage message)
+        {
+            this.Received?.Invoke(this, new MessageReceivedEventArgs(message));
         }
     }
 }
