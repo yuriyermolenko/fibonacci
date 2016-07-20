@@ -1,5 +1,6 @@
 ﻿using PT.Fibonacci.Application.Base.Services;
 using PT.Fibonacci.Domain.Contracts;
+using PT.Fibonacci.Infrastructure.Base.Logging;
 using PT.Fibonacci.Infrastructure.Base.Messaging;
 using PT.Fibonacci.Presentation.Base;
 
@@ -7,6 +8,8 @@ namespace PT.Fibonacci.Presentation.A
 {
     public class FibonacciWorker : FibonacciWorkerBase
     {
+        private static ILogger _logger = LoggerFactory.CreateLog();
+
         private readonly IMessageReceiver _messageReceiver;
 
         public FibonacciWorker(
@@ -21,6 +24,8 @@ namespace PT.Fibonacci.Presentation.A
 
         public void Start()
         {
+            _logger.LogInfo("Starting worker");
+
             _messageReceiver.Start();
             DoWork(new FibonacciRequest(0, this.SourceId));
         }

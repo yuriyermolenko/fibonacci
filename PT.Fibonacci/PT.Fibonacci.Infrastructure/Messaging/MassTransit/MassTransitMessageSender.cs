@@ -14,7 +14,8 @@ namespace PT.Fibonacci.Infrastructure.Messaging.MassTransit
 
         public void Send(IMessage message)
         {
-            throw new NotImplementedException();
+            // TODO
+            //throw new NotImplementedException();
         }
     }
 }

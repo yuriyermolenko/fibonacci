@@ -1,4 +1,6 @@
 ﻿using CommandLine;
+using PT.Fibonacci.Infrastructure.Base.Logging;
+using PT.Fibonacci.Infrastructure.Logging;
 using PT.Fibonacci.Presentation.A.CommandLine;
 using PT.Fibonacci.Presentation.Base;
 using StructureMap;
@@ -15,6 +17,7 @@ namespace PT.Fibonacci.Presentation.A
             if (Parser.Default.ParseArguments(args, commandLineOptions))
             {
                 var container = new Container(new DependencyRegistry());
+                RegisterFactories();
 
                 var worker = container.GetInstance<FibonacciWorker>();
 
@@ -23,6 +26,11 @@ namespace PT.Fibonacci.Presentation.A
 
                 Console.ReadLine();
             }
+        }
+
+        private static void RegisterFactories()
+        {
+            LoggerFactory.SetCurrent(new NLogLogFactory());
         }
     }
 }
