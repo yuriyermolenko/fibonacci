@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PT.Fibonacci.Application.Base.Services;
 using PT.Fibonacci.Application.Services;
+using PT.Fibonacci.Domain;
 using PT.Fibonacci.Infrastructure.Base.Logging;
 using PT.Fibonacci.Infrastructure.Logging;
 
@@ -19,16 +21,16 @@ namespace PT.Fibonacci.Application.Test.Services
         {
             var service = new FibonacciIterativeService();
 
-            Assert.AreEqual(1, FibonacciIterativeService.CalculateNthFibonacciNumber(1));
-            Assert.AreEqual(1, FibonacciIterativeService.CalculateNthFibonacciNumber(2));
-            Assert.AreEqual(2, FibonacciIterativeService.CalculateNthFibonacciNumber(3));
-            Assert.AreEqual(3, FibonacciIterativeService.CalculateNthFibonacciNumber(4));
-            Assert.AreEqual(5, FibonacciIterativeService.CalculateNthFibonacciNumber(5));
-            Assert.AreEqual(8, FibonacciIterativeService.CalculateNthFibonacciNumber(6));
-            Assert.AreEqual(13, FibonacciIterativeService.CalculateNthFibonacciNumber(7));
-            Assert.AreEqual(21, FibonacciIterativeService.CalculateNthFibonacciNumber(8));
-            Assert.AreEqual(34, FibonacciIterativeService.CalculateNthFibonacciNumber(9));
-            Assert.AreEqual(55, FibonacciIterativeService.CalculateNthFibonacciNumber(10));
+            Assert.AreEqual(1, service.CalculateFibonacci(new FibonacciRequest(new FibonacciNumber(0, 0), string.Empty)).Number.Value);
+            Assert.AreEqual(1, service.CalculateFibonacci(new FibonacciRequest(new FibonacciNumber(0, 1), string.Empty)).Number.Value);
+            Assert.AreEqual(2, service.CalculateFibonacci(new FibonacciRequest(new FibonacciNumber(0, 2), string.Empty)).Number.Value);
+            Assert.AreEqual(3, service.CalculateFibonacci(new FibonacciRequest(new FibonacciNumber(0, 3), string.Empty)).Number.Value);
+            Assert.AreEqual(5, service.CalculateFibonacci(new FibonacciRequest(new FibonacciNumber(0, 4), string.Empty)).Number.Value);
+            Assert.AreEqual(8, service.CalculateFibonacci(new FibonacciRequest(new FibonacciNumber(0, 5), string.Empty)).Number.Value);
+            Assert.AreEqual(13, service.CalculateFibonacci(new FibonacciRequest(new FibonacciNumber(0, 6), string.Empty)).Number.Value);
+            Assert.AreEqual(21, service.CalculateFibonacci(new FibonacciRequest(new FibonacciNumber(0, 7), string.Empty)).Number.Value);
+            Assert.AreEqual(34, service.CalculateFibonacci(new FibonacciRequest(new FibonacciNumber(0, 8), string.Empty)).Number.Value);
+            Assert.AreEqual(55, service.CalculateFibonacci(new FibonacciRequest(new FibonacciNumber(0, 9), string.Empty)).Number.Value);
         }
     }
 }

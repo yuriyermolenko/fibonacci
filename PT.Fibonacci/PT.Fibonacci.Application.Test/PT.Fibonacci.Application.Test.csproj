@@ -64,6 +64,10 @@
       <Project>{51DCE257-CB45-4CA2-AA47-024EABDE7D81}</Project>
       <Name>PT.Fibonacci.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PT.Fibonacci.Domain\PT.Fibonacci.Domain.csproj">
+      <Project>{5A94E44F-348F-438E-8AD7-EF705EFCE531}</Project>
+      <Name>PT.Fibonacci.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PT.Fibonacci.Infrastructure.Base\PT.Fibonacci.Infrastructure.Base.csproj">
       <Project>{80E5B91A-76A6-411B-A3C6-69D5F1BBD202}</Project>
       <Name>PT.Fibonacci.Infrastructure.Base</Name>

@@ -22,7 +22,7 @@ namespace PT.Fibonacci.Application.Services
             return new FibonacciResponse(result);
         }
 
-        public static decimal CalculateNthFibonacciNumber(int index)
+        private static decimal CalculateNthFibonacciNumber(int index)
         {
             var fibonacciNumbers = new decimal[index + 1];
 
