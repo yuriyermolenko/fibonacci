@@ -13,7 +13,8 @@ namespace PT.Fibonacci.Presentation.Rest
         {
             // Configure Web API for self-host. 
             var config = new HttpConfiguration();
-            HttpRouteCollectionExtensions.MapHttpRoute(config.Routes, name: "DefaultApi",
+
+            config.Routes.MapHttpRoute(name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );

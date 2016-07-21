@@ -14,8 +14,7 @@
             Value = value;
             Index = index;
         }
-
-
+        
         public override string ToString()
         {
             return $"{Value}({Index})";

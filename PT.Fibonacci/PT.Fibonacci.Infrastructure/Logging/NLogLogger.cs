@@ -6,13 +6,7 @@ namespace PT.Fibonacci.Infrastructure.Logging
 {
     public class NLogLogger : ILogger
     {
-        #region Fields and properties
-
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
-
-        #endregion
-
-        #region Public methods
 
         public void LogInfo(string message, params object[] args)
         {
@@ -49,7 +43,5 @@ namespace PT.Fibonacci.Infrastructure.Logging
         {
             _logger.Debug(message, args);
         }
-
-        #endregion
     }
 }

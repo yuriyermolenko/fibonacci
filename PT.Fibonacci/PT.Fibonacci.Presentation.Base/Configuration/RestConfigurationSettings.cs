@@ -10,8 +10,7 @@ namespace PT.Fibonacci.Presentation.Base.Configuration
             get { return (string)this["url"]; }
             set { this["url"] = value; }
         }
-
-
+        
         [ConfigurationProperty("route", DefaultValue = "api/fibonacci")]
         public string Route
         {

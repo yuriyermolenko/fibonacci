@@ -20,7 +20,7 @@ namespace PT.Fibonacci.Infrastructure.Messaging.Rest
             var request = new RestRequest(_config.Route, Method.POST);
             request.AddObject(message);
 
-            IRestResponse response = client.Execute(request);
+            var response = client.Execute(request);
 
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
